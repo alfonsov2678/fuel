@@ -8,7 +8,9 @@ class LoadScholarships extends Component {
     pageSize: 20,
     currentPage: 1,
     selectedArea: null,
-    sortColumn: { path: "scholarshipName", order: "asc" }
+    sortColumn: { path: "scholarshipName", order: "asc" },
+    data: [],
+    columns: []
   };
   handleDelete = movie => {
     const movies = this.state.movies.filter(m => m._id !== movie._id);
