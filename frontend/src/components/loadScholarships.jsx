@@ -19,7 +19,7 @@ class LoadScholarships extends Component {
   };
 
   async componentDidMount() {
-    const { data }  = await axios.get("http://localhost:3000/api/scholarships");
+    const { data } = await axios.get("http://localhost:3000/api/scholarships");
     this.setState({ scholarships: data });
   }
 
