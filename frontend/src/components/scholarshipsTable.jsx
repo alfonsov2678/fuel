@@ -8,7 +8,7 @@ class ScholarshipTable extends Component {
       path: "scholarshipName",
       lable: "Name",
       content: scholarship => (
-        <Link to={`/scholarships/${LoadScholarships._id}`}>
+        <Link to={`/scholarships/${scholarship._id}`}>
           {scholarship.scholarshipName}
         </Link>
       )

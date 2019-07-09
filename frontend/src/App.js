@@ -7,6 +7,7 @@ import CreateHome from "./components/createHome";
 import CreateOpportunityForm from "./components/createOpportunityForm";
 import CreateScholarshipForm from "./components/createScholarshipForm";
 import LoadScholarships from "./components/loadScholarships";
+import LoadOpportunity from "./components/loadOpportunity";
 class App extends Component {
   render() {
     return (
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/create-student" component={CreateUserForm} />
           <Route path="/create-scholarship" component={CreateScholarshipForm} />
           <Route path="/create-opportunity" component={CreateOpportunityForm} />
+          <Route path="/opportunities" component={LoadOpportunity} />
         </Switch>
       </BrowserRouter>
     );
