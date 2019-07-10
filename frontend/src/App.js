@@ -8,6 +8,7 @@ import CreateOpportunityForm from "./components/createOpportunityForm";
 import CreateScholarshipForm from "./components/createScholarshipForm";
 import LoadScholarships from "./components/loadScholarships";
 import LoadOpportunity from "./components/loadOpportunity";
+import Scholarship from "./components/scholarship";
 class App extends Component {
   render() {
     return (
@@ -17,7 +18,8 @@ class App extends Component {
         </main>
         <Switch>
           <Route path="/login" component={LoginForm} />
-          <Route path="/scholarships" component={LoadScholarships} />
+          <Route exact path="/scholarships" component={LoadScholarships} />
+          <Route exact path="/scholarships/:id" component={Scholarship} />
           <Route path="/create-account" component={CreateHome} />
           <Route path="/create-student" component={CreateUserForm} />
           <Route path="/create-scholarship" component={CreateScholarshipForm} />

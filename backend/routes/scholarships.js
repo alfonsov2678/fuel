@@ -8,4 +8,13 @@ router.get("/", async (req, res) => {
   res.send(scholarships);
 });
 
+router.get("/:id", async (req, res) => {
+  const scholarship = await Scholarship.findById(req.params.id);
+  if (!scholarship) {
+    return res
+      .status(404)
+      .send("The scholarship that you are looking for does not exist");
+  }
+  res.send(scholarship);
+});
 module.exports = router;
