@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 class Scholarship extends Component {
   state = {
@@ -15,7 +16,15 @@ class Scholarship extends Component {
     const { scholarship } = this.state;
     return (
       <div>
-        <h1>{scholarship.scholarshipName}</h1>
+        <h1>
+          {scholarship.scholarshipName}
+          <small className="text-muted">{scholarship.email}</small>
+        </h1>
+        <p className="lead">{scholarship.scholarshipDescription}</p>
+        <p className="lead">
+          Access the application to {scholarship.scholarshipName} at{" "}
+          {scholarship.website}
+        </p>
       </div>
     );
   }

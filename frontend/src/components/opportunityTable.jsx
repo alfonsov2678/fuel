@@ -8,7 +8,7 @@ class OpportunityTable extends Component {
       path: "opportunityName",
       lable: "Name",
       content: opportunity => (
-        <Link to={`/scholarships/${opportunity._id}`}>
+        <Link to={`/opportunities/${opportunity._id}`}>
           {opportunity.opportunityName}
         </Link>
       )
