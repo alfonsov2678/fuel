@@ -26,7 +26,7 @@ class ScholarshipLoginForm extends Form {
       }
     );
 
-    this.props.history.push(`scholarships/${data._id}`);
+    this.props.history.push(`scholarship/${data._id}`);
   }
   render() {
     return (

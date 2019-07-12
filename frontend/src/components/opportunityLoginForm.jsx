@@ -17,15 +17,16 @@ class OpportunityLoginForm extends Form {
       .label("Password")
   };
 
-  doSubmit = () => {
-    axios
-      .post("http://localhost:3000/api/opportunity-login", {
+  async doSubmit() {
+    const { data } = await axios.post(
+      "http://localhost:3000/api/opportunity-login",
+      {
         opportunityEmail: this.state.data.email,
         password: this.state.data.password
-      })
-      .then(res => console.log(res))
-      .catch(() => console.log("Something happened on our end"));
-  };
+      }
+    );
+    this.props.history.push(`opportunity/${data._id}`);
+  }
   render() {
     return (
       <div>

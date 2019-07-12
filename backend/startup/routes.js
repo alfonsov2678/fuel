@@ -17,4 +17,5 @@ module.exports = function(app) {
   app.use("/api/create-scholarship", scholarships);
   app.use("/api/scholarships", scholarship);
   app.use("/api/opportunities", opportunity);
+  app.use("/api/opportunity", opportunity);
 };

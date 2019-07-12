@@ -14,6 +14,7 @@ import Opportunity from "./components/opportunity";
 import OpportunityLoginForm from "./components/opportunityLoginForm";
 import StudentLoginForm from "./components/studentLoginForm";
 import ScholarshipProfile from "./components/scholarshipProfile";
+import OpportunityProfile from "./components/opportunityProfile";
 class App extends Component {
   render() {
     return (
@@ -23,11 +24,8 @@ class App extends Component {
         </main>
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route
-            exact
-            path="/scholarships/:id"
-            component={ScholarshipProfile}
-          />
+          <Route exact path="/scholarship/:id" component={ScholarshipProfile} />
+          <Route exact path="/opportunity/:id" component={OpportunityProfile} />
           <Route exact path="/student-login" component={StudentLoginForm} />
           <Route path="/scholarship-login" component={ScholarshipLoginForm} />
           <Route path="/fueler-login" component={OpportunityLoginForm} />
