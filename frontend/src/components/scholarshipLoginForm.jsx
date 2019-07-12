@@ -17,15 +17,17 @@ class ScholarshipLoginForm extends Form {
       .label("Password")
   };
 
-  doSubmit = () => {
-    axios
-      .post(`http://localhost:3000/api/scholarship-login`, {
+  async doSubmit() {
+    const { data } = await axios.post(
+      `http://localhost:3000/api/scholarship-login`,
+      {
         email: this.state.data.email,
         password: this.state.data.password
-      })
-      .then(res => console.log(res))
-      .catch(() => console.log("Something happened on our end"));
-  };
+      }
+    );
+
+    this.props.history.push(`scholarships/${data._id}`);
+  }
   render() {
     return (
       <div>
