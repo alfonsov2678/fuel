@@ -21,9 +21,6 @@ const opportunitySchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-  otherDetails: {
-    type: String
   }
 });
 
@@ -38,8 +35,7 @@ function validateOpportunity(opportunity) {
       .email()
       .required(),
     opportunityAreaOfInterest: Joi.string().required(),
-    password: Joi.string().required(),
-    otherDetails: Joi.string()
+    password: Joi.string().required()
   };
   return Joi.validate(opportunity, schema);
 }

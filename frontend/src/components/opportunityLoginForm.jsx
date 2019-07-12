@@ -3,7 +3,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import { Link } from "react-router-dom";
 import axios from "axios";
-class LoginForm extends Form {
+class OpportunityLoginForm extends Form {
   state = {
     data: { email: "", password: "" },
     errors: {}
@@ -19,8 +19,8 @@ class LoginForm extends Form {
 
   doSubmit = () => {
     axios
-      .post("http://localhost:3000/api/login", {
-        email: this.state.data.email,
+      .post("http://localhost:3000/api/opportunity-login", {
+        opportunityEmail: this.state.data.email,
         password: this.state.data.password
       })
       .then(res => console.log(res))
@@ -33,7 +33,10 @@ class LoginForm extends Form {
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("email", "Email")}
           {this.renderInput("password", "Password", "password")}
-          {this.renderButton("Login")}
+
+          <button disabled={this.validate()} className="btn btn-primary">
+            Login
+          </button>
         </form>
         <Link to="/create-account" className="text-primary">
           Don't have an account? Create one here
@@ -43,4 +46,4 @@ class LoginForm extends Form {
   }
 }
 
-export default LoginForm;
+export default OpportunityLoginForm;

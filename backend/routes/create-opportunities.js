@@ -4,19 +4,19 @@ const _ = require("lodash");
 const { validate, Opportunity } = require("../models/opportunity");
 
 router.post("/", async (req, res) => {
-  const { errors } = validate(req.body);
-  if (errors) {
-    res.status(400).send("The opportunity you are trying to create is invalid");
-    return;
+  const { error } = validate(req.body);
+  if (error) {
+    return res
+      .status(400)
+      .send("The opportunity that you are trying to create is invalid");
   }
-  let opportunity = Opportunity.find({
-    email: req.body.email
+  let opportunity = await Opportunity.findOne({
+    email: req.body.opportunityEmail
   });
   if (opportunity) {
-    res
+    return res
       .status(400)
-      .send("The opportunity that you are trying to register already exists");
-    return;
+      .send("The opportunity you are trying to create is already registered");
   }
   opportunity = new Opportunity(req.body);
   await opportunity.save();

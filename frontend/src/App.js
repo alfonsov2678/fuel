@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "./components/nav";
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
-import LoginForm from "./components/loginForm";
+import ScholarshipLoginForm from "./components/scholarshipLoginForm";
 import CreateUserForm from "./components/createUserForm";
 import CreateHome from "./components/createHome";
 import CreateOpportunityForm from "./components/createOpportunityForm";
@@ -9,7 +9,10 @@ import CreateScholarshipForm from "./components/createScholarshipForm";
 import LoadScholarships from "./components/loadScholarships";
 import LoadOpportunity from "./components/loadOpportunity";
 import Scholarship from "./components/scholarship";
+import Login from "./components/login";
 import Opportunity from "./components/opportunity";
+import OpportunityLoginForm from "./components/opportunityLoginForm";
+import StudentLoginForm from "./components/studentLoginForm";
 class App extends Component {
   render() {
     return (
@@ -18,7 +21,10 @@ class App extends Component {
           <NavBar />
         </main>
         <Switch>
-          <Route path="/login" component={LoginForm} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/student-login" component={StudentLoginForm} />
+          <Route path="/scholarship-login" component={ScholarshipLoginForm} />
+          <Route path="/fueler-login" component={OpportunityLoginForm} />
           <Route exact path="/scholarships" component={LoadScholarships} />
           <Route exact path="/scholarships/:id" component={Scholarship} />
           <Route path="/create-account" component={CreateHome} />
