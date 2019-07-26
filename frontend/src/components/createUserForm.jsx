@@ -36,9 +36,10 @@ class CreateUserForm extends Form {
       .label("Area of Interest"),
     description: Joi.string().label("Description")
   };
-  doSubmit = () => {
-    axios
-      .post(`http://localhost:3000/api/create-student`, {
+  async doSubmit() {
+    const { data } = await axios.post(
+      `http://localhost:3000/api/create-student`,
+      {
         name: this.state.data.name,
         email: this.state.data.email,
         college: this.state.data.college,
@@ -46,9 +47,10 @@ class CreateUserForm extends Form {
         password: this.state.data.password,
         aoi: this.state.data.aoi,
         description: this.state.data.description
-      })
-      .then(res => console.log(res));
-  };
+      }
+    );
+    this.props.history.push(`/student/${data._id}`);
+  }
   render() {
     return (
       <div>

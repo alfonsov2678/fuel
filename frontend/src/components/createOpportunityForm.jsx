@@ -34,18 +34,19 @@ class CreateOpportunityForm extends Form {
       .required()
       .label("Password")
   };
-  doSubmit = () => {
-    axios
-      .post(`http://localhost:3000/api/create-opportunity`, {
+  async doSubmit() {
+    const { data } = await axios.post(
+      `http://localhost:3000/api/create-opportunity`,
+      {
         opportunityName: this.state.data.opportunityName,
         opportunityDescription: this.state.data.opportunityDescription,
         email: this.state.data.opportunityEmail,
         opportunityAreaOfInterest: this.state.data.opportunityAreaOfInterest,
         password: this.state.data.password
-      })
-      .then(res => console.log(res))
-      .catch(() => console.log("A server error  occurred"));
-  };
+      }
+    );
+    this.props.history.push(`opportunity/${data._id}`);
+  }
   render() {
     return (
       <div>

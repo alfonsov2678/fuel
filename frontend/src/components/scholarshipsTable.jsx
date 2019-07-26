@@ -8,10 +8,23 @@ class ScholarshipTable extends Component {
       path: "scholarshipName",
       lable: "Name",
       content: scholarship => (
-        <Link to={`/scholarships/${scholarship._id}`}>
+        <Link
+          className="btn btn-md btn-outline-info"
+          to={`/scholarships/${scholarship._id}`}
+        >
           {scholarship.scholarshipName}
         </Link>
       )
+    },
+    {
+      path: "scholarshipDescription",
+      lable: "Description",
+      content: scholarship => <h6>{scholarship.scholarshipDescription}</h6>
+    },
+    {
+      path: "email",
+      lable: "Email",
+      content: scholarship => <h6>{scholarship.email}</h6>
     }
   ];
   render() {

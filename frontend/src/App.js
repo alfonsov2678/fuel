@@ -15,6 +15,9 @@ import OpportunityLoginForm from "./components/opportunityLoginForm";
 import StudentLoginForm from "./components/studentLoginForm";
 import ScholarshipProfile from "./components/scholarshipProfile";
 import OpportunityProfile from "./components/opportunityProfile";
+import EditStudent from "./components/editStudent";
+import StudentProfile from "./components/studentProfile";
+import Home from "./components/home";
 class App extends Component {
   render() {
     return (
@@ -23,7 +26,10 @@ class App extends Component {
           <NavBar />
         </main>
         <Switch>
+          <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/editProfile/:id" component={EditStudent} />
+          <Route exact path="/student/:id" component={StudentProfile} />
           <Route exact path="/scholarship/:id" component={ScholarshipProfile} />
           <Route exact path="/opportunity/:id" component={OpportunityProfile} />
           <Route exact path="/student-login" component={StudentLoginForm} />

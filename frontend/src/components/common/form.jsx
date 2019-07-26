@@ -52,14 +52,10 @@ class Form extends Component {
     this.setState({ data, errors });
   };
   renderButton(label) {
-    return (
-      <button disabled={this.validate()} className="btn btn-primary">
-        {label}
-      </button>
-    );
+    return <button className="btn btn-primary">{label}</button>;
   }
 
-  renderInput(name, label, type = "text") {
+  renderInput(name, label, val, type = "text") {
     const { data, errors } = this.state;
     return (
       <Input

@@ -21,4 +21,27 @@ router.post("/", async (req, res) => {
   res.send(student);
 });
 
+router.get("/:id", async (req, res) => {
+  let student = await Student.findById(req.params.id);
+  if (!student) {
+    return res
+      .status(404)
+      .send("The student that you are looking for is invalid");
+  }
+  res.send(student);
+});
+router.put("/:id", async (req, res) => {
+  const student = await Student.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    email: req.body.email,
+    college: req.body.college,
+    age: req.body.age,
+    aoi: req.body.aoi,
+    description: req.body.description
+  });
+  if (!student) {
+    return res.status(404).send("The student you are looking for is invalid");
+  }
+  res.send(student);
+});
 module.exports = router;

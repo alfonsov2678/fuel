@@ -8,10 +8,23 @@ class OpportunityTable extends Component {
       path: "opportunityName",
       lable: "Name",
       content: opportunity => (
-        <Link to={`/opportunities/${opportunity._id}`}>
+        <Link
+          className="btn btn-md btn-outline-dark"
+          to={`/opportunities/${opportunity._id}`}
+        >
           {opportunity.opportunityName}
         </Link>
       )
+    },
+    {
+      path: "opportunityAreaOfInterest",
+      lable: "Area of Interest",
+      content: opportunity => <h6>{opportunity.opportunityAreaOfInterest}</h6>
+    },
+    {
+      path: "opportunityDescription",
+      lable: "Description",
+      content: opportunity => <h6>{opportunity.opportunityDescription}</h6>
     }
   ];
   render() {
