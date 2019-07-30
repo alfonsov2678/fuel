@@ -26,6 +26,7 @@ class App extends Component {
           <NavBar />
         </main>
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/editProfile/:id" component={EditStudent} />

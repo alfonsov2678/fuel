@@ -1,5 +1,6 @@
 const { validate, Student } = require("../models/student");
 const express = require("express");
+const bcrypt = require("bcrypt");
 const router = express.Router();
 const _ = require("lodash");
 
@@ -17,6 +18,8 @@ router.post("/", async (req, res) => {
     return;
   }
   student = new Student(req.body);
+  const salt = await bcrypt.genSalt(10);
+  student.password = await bcrypt.hash(student.password, salt);
   await student.save();
   res.send(student);
 });

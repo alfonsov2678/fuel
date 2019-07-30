@@ -2,6 +2,7 @@ const { validate, Scholarship } = require("../models/scholarship");
 const express = require("express");
 const router = express.Router();
 const _ = require("lodash");
+const bcrypt = require("bcrypt");
 const session = require("express-session");
 
 router.post("/", async (req, res) => {
@@ -13,7 +14,8 @@ router.post("/", async (req, res) => {
         "The scholarship you are trying to login with has never been created"
       );
   }
-  if (scholarship.password !== req.body.password) {
+  const validPassword = bcrypt.compare(req.body.password, scholarship.password);
+  if (!validPassword) {
     return res.status(400).send("Invalid Password");
   }
   res.send(scholarship);
